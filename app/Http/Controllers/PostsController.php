@@ -10,4 +10,17 @@ class PostsController extends Controller
 
     return view ('posts.Home');
    }
+
+   public function Signup() {
+
+      return view ('posts.Signup');
+     }
+
+     public function Login() {
+
+      return view ('posts.login');
+     }
+
+
+
 }

@@ -73,7 +73,7 @@ body{
 main{
     height:99.9%;
     overflow: auto;
-    margin-top: 90px;
+    margin-top: 50px;
 }
 
   
@@ -89,3 +89,6 @@ main{
   footer p {
     margin-bottom: .25rem;
   }
+
+
+ 
