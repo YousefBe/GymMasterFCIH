@@ -31,18 +31,12 @@
     </div>
 
 
-    <div class="reppasas">
+    <div class="reppass">
     <label for="psw-repeat"><b>Repeat Password</b></label>
     <br>
     <input type="password" class="form-control"placeholder="Repeat Password" name="psw-repeat" required>
     </div>
 
-
-  
-
-
-   
-  
     <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
 
     <div class="clearfix">
