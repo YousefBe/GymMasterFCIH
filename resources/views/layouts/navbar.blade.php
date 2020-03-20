@@ -1,5 +1,5 @@
 <div class="topnav">
-  <a class="active" href="#home">Home</a>
+  <a class="active" href="/Home">Home</a>
   <a href="#about">Contact-Us</a> 
   <a href="#about">About</a>
   
