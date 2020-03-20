@@ -13,4 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+<<<<<<< HEAD
 Route::get('/','PostsController@index');
+=======
+Route::get('/','PostsController@index' );
+
+Route::get('/signup','PostsController@Signup' );
+Route::get('/login','PostsController@Login' );
+Route::get('/', function () {
+    return view('posts.Home');
+});
+>>>>>>> heads/1

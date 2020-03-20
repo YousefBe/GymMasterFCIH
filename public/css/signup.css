@@ -1,0 +1,18 @@
+.Scontainer{
+    height: 600px;
+     width: 500px;
+     position: relative;
+     margin-left: 120px;
+   }
+ 
+  .Scontainer h1{
+    color: darkcyan;
+  }
+  .Scontainer p , label{
+   color:rgb(255, 222, 160)
+ }
+   .Scontainer input{
+     line-height: 10px;
+     width: 80%;
+     height: 40px;
+   }
