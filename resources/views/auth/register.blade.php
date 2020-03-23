@@ -76,7 +76,7 @@
                             <label for="Weight" class="col-md-4 col-form-label text-md-right">{{ __('Weight') }}</label>
 
                             <div class="col-md-6">
-                                <input id="Weight" type="text" class="form-control " name="Weight" value="{{ old('name') }}" required autocomplete="Weight" autofocus>
+                                <input id="Weight" type="text" class="form-control " name="Weight" value="{{ old('Weight') }}" required autocomplete="Weight" autofocus>
                             </div>
                         </div>
                         
