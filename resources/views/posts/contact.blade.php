@@ -1,3 +1,5 @@
+@extends ('layout')
+@section ('content')
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,25 +20,25 @@
     <div class="row">
     <div class="col-md-6">
     @if ( Session::has('flash_message'))
-        <div class="alert alert-succes">{{ Session::get('flash_message')}}</div>
+        <div class="alert alert-success">{{ Session::get('flash_message')}}</div>
     @endif
     <form method="post" action="{{ route('contact.store')}}">
     {{csrf_field()}}
-        <div class="form-group">
+        <div class="form-group"style="font-size:1.25em;font-weight:bold;">
         <label>Full Name: </label>
             <input type="text" class="form-control" name="name">
             @if ($errors->has('name'))
             <small class="form-text invalid-feedback">{{ $errors->first('name')}}</small>
             @endif
         </div>
-        <div class="form-group">
+        <div class="form-group"style="font-size:1.25em;font-weight:bold;">
         <label>Email address: </label>
             <input type="text" class="form-control" name="email">
             @if ($errors->has('email'))
             <small class="form-text invalid-feedback">{{ $errors->first('email')}}</small>
             @endif
         </div>
-        <div class="form-group">
+        <div class="form-group"style="font-size:1.75em;font-weight:bold;">
         <label>message: </label>
             <textarea name="message" class="form-control"></textarea>
             @if ($errors->has('message'))
@@ -50,3 +52,4 @@
     </div>
 </body>
 </html>
+@endsection
