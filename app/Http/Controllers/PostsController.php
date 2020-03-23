@@ -13,7 +13,7 @@ class PostsController extends Controller
 
    public function Signup() {
 
-      return view ('posts.Signup');
+      return view ('auth.register');
      }
 
      public function Login() {

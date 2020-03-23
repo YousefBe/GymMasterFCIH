@@ -20,3 +20,15 @@ Route::get('/login','PostsController@Login' );
 Route::get('/', function () {
     return view('posts.Home');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
