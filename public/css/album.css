@@ -45,6 +45,7 @@ height: 100%;
   }
 body{
     background-image: url('f.png');
+    background-repeat: no-repeat;
     background-size: cover;
 }
 

@@ -1,4 +1,4 @@
-@extends ('layout')
+@extends ('layouts.app')
 <head>
 <title>Login Page</title>
    <!--Made with love by Mutiullah Samim -->
