@@ -33,6 +33,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+
 Route::post('/contact',[
     'uses'=>'PostsController@store',
     'as'=>'contact.store'
