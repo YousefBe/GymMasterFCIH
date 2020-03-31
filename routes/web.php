@@ -32,3 +32,10 @@ Route::get('/home', 'HomeController@index')->name('home');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/contact', function () {
+    return view('posts.contact');
+});
+Route::post('/contact',[
+    'uses'=>'PostsController@store',
+    'as'=>'contact.store'
+]);
