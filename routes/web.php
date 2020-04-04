@@ -41,3 +41,17 @@ Route::post('/contact',[
     'uses'=>'PostsController@store',
     'as'=>'contact.store'
 ]);
+
+
+route::prefix('admin')->group(function(){
+    Route::get('/login', 'Auth\AdminLoginController@ShowLoginForm')->name('admin.login');
+    Route::Post('/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
+    route::get('/' , 'AdminController@index')->name('admin.Dasboard');
+    
+    
+    });
+    
+
+    Route::get('/coach/login', 'Auth\CoachLoginController@ShowLoginForm')->name('coach.login');
+    Route::post('/coach/login', 'Auth\CoachLoginController@login')->name('coach.login.submit');
+    route::get('/coach' , 'CoachController@index')->name('Coach.Dasboard');
