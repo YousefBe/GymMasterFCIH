@@ -38,6 +38,7 @@
                                 @enderror
                             </div>
                         </div>
+                        
 
                         <div class="form-group row">
                             <div class="col-md-6 offset-md-4">
@@ -62,6 +63,11 @@
                                         {{ __('Forgot Your Password?') }}
                                     </a>
                                 @endif
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-md-8 offset-md-2">
+                            <a href="Login as Admin">z</a>
                             </div>
                         </div>
                     </form>
