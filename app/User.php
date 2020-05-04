@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'Age' ,'Weight'
+        'name', 'email', 'password', 'Age' ,'Weight' , 'coach_id'
     ];
 
     /**
@@ -36,18 +36,15 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    public function setPasswordAttribute($value){
+        $this->attributes['password'] = bcrypt($value);
+    }
+    
+    
 
-public function roles(){
-    return $this->belongsToMany('App\Role');
-
-}
-
-public function hasAnyRoles($roles){
-    return null !== $this->roles()->whereIn('name' , $roles)->first();
-}
-
-public function hasAnyRole($role){
-    return null !== $this->roles()->where('name' , $role)->first();
+public function coach()
+{
+    return $this->belongsTo(Coach::class , 'id');
 }
 
 

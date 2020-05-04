@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Coach;
 use Illuminate\Http\Request;
 
 class CoachController extends Controller
@@ -25,4 +25,10 @@ class CoachController extends Controller
     {
         return view('coach.CoachDashboard');
     }
+
+    public function myMembers(Coach $coach)
+    {
+        return $coach->users[0]->name;
+    }
+
 }

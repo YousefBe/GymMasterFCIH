@@ -44,12 +44,39 @@
                         
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                
                                 @if( Auth::guard('coach')->check()) 
                                 {{ Auth::guard('coach')->user()->name }}
+                               
+                               
+                               
+                               
+                               
+                               
+                               
                                 @elseif(Auth::guard('admin')->check())
-                                {{ Auth::guard('admin')->user()->name }}
+                                
+                                
+                                @if(Auth::guard('admin')->user()->image =='default.jpg' )
+                                <img src="{{asset('storage/uploads/' .Auth::guard('admin')->user()->image) }}" alt="nothingBoy" style="width:30px; height:30px ; float:left ; border-radius:50% ;  margin-right:25px;" >
                                 @else
-                                {{ Auth::user()->name }}
+                                <img src="{{asset('storage/' .Auth::user()->image) }}" alt="nothingBoy" style="width:30px; height:30px ; float:left ; border-radius:50% ;  margin-right:25px;" >
+
+                                @endif
+
+                                
+                                
+                                
+                                @else
+
+                                    @if(Auth::user()->image =='default.jpg' )
+                                    <img src="{{asset('storage/uploads/' .Auth::user()->image) }}" alt="nothingBoy" style="width:30px; height:30px ; float:left ; border-radius:50% ;  margin-right:25px;" >
+                                    @else
+                                    <img src="{{asset('storage/' .Auth::user()->image) }}" alt="nothingBoy" style="width:30px; height:30px ; float:left ; border-radius:50% ;  margin-right:25px;" >
+
+                                    @endif
+
+
                                 @endif
                                 <span class="caret"></span>
                             </a>

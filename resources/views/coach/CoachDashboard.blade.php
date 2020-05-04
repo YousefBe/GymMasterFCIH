@@ -13,7 +13,7 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
+                    <a href="/coach/{{Auth::user()->id}}">view members</a>
                     {{ Auth::user()->name  ?? ''}}  You are logged in As Coach !
                 </div>
             </div>

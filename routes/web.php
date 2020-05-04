@@ -25,15 +25,6 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-
 Route::get('/contact', function () {
     return view('posts.contact');
 });
@@ -42,16 +33,17 @@ Route::post('/contact',[
     'as'=>'contact.store'
 ]);
 
-
 route::prefix('admin')->group(function(){
     Route::get('/login', 'Auth\AdminLoginController@ShowLoginForm')->name('admin.login');
     Route::Post('/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
     route::get('/' , 'AdminController@index')->name('admin.Dasboard');
-    
-    
+    Route::get('/{admin}/profile', 'AdminController@show')->name('admin.show');  
+    Route::get('/{admin}/edit', 'AdminController@edit')->name('admin.edit');  
+    Route::patch('/{admin}', 'AdminController@update')->name('admin.update');  
     });
     
 
     Route::get('/coach/login', 'Auth\CoachLoginController@ShowLoginForm')->name('coach.login');
     Route::post('/coach/login', 'Auth\CoachLoginController@login')->name('coach.login.submit');
     route::get('/coach' , 'CoachController@index')->name('Coach.Dasboard');
+    route::get('/coach/{coach}' ,'CoachController@myMembers')->name('membs');

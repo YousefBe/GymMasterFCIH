@@ -21,6 +21,9 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->integer('age');
             $table->integer('Weight');
+            $table->string('image')->default('default.jpg');
+            $table->unsignedBigInteger('coach_id')->nullable();;
+            $table->foreign('coach_id')->references('id')->on('coaches');
             $table->rememberToken();
             $table->timestamps();
         });

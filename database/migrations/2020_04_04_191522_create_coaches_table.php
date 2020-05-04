@@ -19,7 +19,8 @@ class CreateCoachesTable extends Migration
             $table->string('email');
             $table->string('password');
             $table->integer('salary');
-            $table->integer('age');           
+            $table->integer('age');      
+            $table->string('image')->default('default.jpg');     
             $table->timestamps();
         });
     }

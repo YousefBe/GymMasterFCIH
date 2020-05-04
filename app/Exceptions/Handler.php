@@ -55,6 +55,7 @@ class Handler extends ExceptionHandler
     }
     protected function unauthenticated($request, AuthenticationException $exception)
     {
+        //$gaurd = Arr::get($exception->guards(),0);
         
         if ($request->is('admin') || $request->is('/admin')) {
             return redirect()->guest('/admin/login');
