@@ -22,8 +22,6 @@ class CreateUsersTable extends Migration
             $table->integer('age');
             $table->integer('Weight');
             $table->string('image')->default('default.jpg');
-            $table->string('CoachMassege')->default('No Masseges!');
-            $table->string('CoachPlan')->default('No Plan Yet!');
             $table->unsignedBigInteger('coach_id')->nullable();;
             $table->foreign('coach_id')->references('id')->on('coaches');
             $table->rememberToken();

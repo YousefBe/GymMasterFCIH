@@ -14,19 +14,19 @@ class adminsTableSeeder extends Seeder
        $admin =Admin::create([
         'name'=>"youssef",
         'email' =>"joebelal71@gmail.com",
-        'password' => bcrypt(123)
+        'password' => 123
        ]);
 
 
        $admin2=Admin::create([
         'name'=>"mostafa",
         'email' =>"mostafa@gmail.com",
-        'password' =>bcrypt(123)
+        'password' => 123
        ]);
        $admin3=Admin::create([
         'name'=>"sa3ed",
         'email' =>"sa3ed@gmail.com",
-        'password' => bcrypt(123)
+        'password' => 123
        ]);
     }
 }

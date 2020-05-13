@@ -66,14 +66,8 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <div class="col-md-8 offset-md-6 pt-2">
-                             <a href="/admin">login as an admin</a>
-                            
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <div class="col-md-8 offset-md-6">
-                             <a href="/coach">login as an coach</a>
+                            <div class="col-md-8 offset-md-2">
+                            <a href="Login as Admin">z</a>
                             </div>
                         </div>
                     </form>
