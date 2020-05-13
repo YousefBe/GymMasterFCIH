@@ -48,31 +48,31 @@
                                 @if( Auth::guard('coach')->check()) 
                                 {{ Auth::guard('coach')->user()->name }}
                                
-                               
-                               
-                               
-                               
-                               
-                               
+                                     @if(Auth::guard('coach')->user()->image =='default.jpg' )
+                                        <img src="{{asset('storage/uploads/' .Auth::guard('coach')->user()->image) }}" alt="nothingBoy" style="width:30px; height:30px ; float:left ; border-radius:50% ;  margin-right:25px;" >
+                                      @else
+                                        <img src="{{asset('storage/' .Auth::user()->image) }}" alt="nothingBoy" style="width:30px; height:30px ; float:left ; border-radius:50% ;  margin-right:25px;" >
+
+                                     @endif
+
                                 @elseif(Auth::guard('admin')->check())
                                 
                                 
-                                @if(Auth::guard('admin')->user()->image =='default.jpg' )
-                                <img src="{{asset('storage/uploads/' .Auth::guard('admin')->user()->image) }}" alt="nothingBoy" style="width:30px; height:30px ; float:left ; border-radius:50% ;  margin-right:25px;" >
-                                @else
-                                <img src="{{asset('storage/' .Auth::user()->image) }}" alt="nothingBoy" style="width:30px; height:30px ; float:left ; border-radius:50% ;  margin-right:25px;" >
+                                    @if(Auth::guard('admin')->user()->image =='default.jpg' )
+                                         <img src="{{asset('storage/uploads/' .Auth::guard('admin')->user()->image) }}" alt="nothingBoy" style="width:30px; height:30px ; float:left ; border-radius:50% ;  margin-right:25px;" >
+                                     @else
+                                         <img src="{{asset('storage/' .Auth::user()->image) }}" alt="nothingBoy" style="width:30px; height:30px ; float:left ; border-radius:50% ;  margin-right:25px;" >
 
-                                @endif
+                                    @endif
 
                                 
-                                
-                                
+                  
                                 @else
 
                                     @if(Auth::user()->image =='default.jpg' )
-                                    <img src="{{asset('storage/uploads/' .Auth::user()->image) }}" alt="nothingBoy" style="width:30px; height:30px ; float:left ; border-radius:50% ;  margin-right:25px;" >
+                                         <img src="{{asset('storage/uploads/' .Auth::user()->image) }}" alt="nothingBoy" style="width:30px; height:30px ; float:left ; border-radius:50% ;  margin-right:25px;" >
                                     @else
-                                    <img src="{{asset('storage/' .Auth::user()->image) }}" alt="nothingBoy" style="width:30px; height:30px ; float:left ; border-radius:50% ;  margin-right:25px;" >
+                                         <img src="{{asset('storage/' .Auth::user()->image) }}" alt="nothingBoy" style="width:30px; height:30px ; float:left ; border-radius:50% ;  margin-right:25px;" >
 
                                     @endif
 
