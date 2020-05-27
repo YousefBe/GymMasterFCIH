@@ -44,6 +44,11 @@
                         
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                {{-- if conditions to acess the logged user details *name and image* --}}
+
+                                {{-- This Section is to get the name and type of each type of system users --}}
+                                {{-- i checked if the logged user image is the default image if it is the path changes --}}
+                                {{-- cuz when you update your image it includes part of the path to the new  image name --}}
                                 
                                 @if( Auth::guard('coach')->check()) 
                                 {{ Auth::guard('coach')->user()->name }}
@@ -51,28 +56,28 @@
                                      @if(Auth::guard('coach')->user()->image =='default.jpg' )
                                         <img src="{{asset('storage/uploads/' .Auth::guard('coach')->user()->image) }}" alt="nothingBoy" style="width:30px; height:30px ; float:left ; border-radius:50% ;  margin-right:25px;" >
                                       @else
-                                        <img src="{{asset('storage/' .Auth::user()->image) }}" alt="nothingBoy" style="width:30px; height:30px ; float:left ; border-radius:50% ;  margin-right:25px;" >
+                                        <img src="{{asset('storage/' .Auth::guard('coach')->user()->image) }}" alt="nothingBoy" style="width:30px; height:30px ; float:left ; border-radius:50% ;  margin-right:25px;" >
 
                                      @endif
 
                                 @elseif(Auth::guard('admin')->check())
-                                
+                                {{ Auth::guard('admin')->user()->name }}
                                 
                                     @if(Auth::guard('admin')->user()->image =='default.jpg' )
                                          <img src="{{asset('storage/uploads/' .Auth::guard('admin')->user()->image) }}" alt="nothingBoy" style="width:30px; height:30px ; float:left ; border-radius:50% ;  margin-right:25px;" >
                                      @else
-                                         <img src="{{asset('storage/' .Auth::user()->image) }}" alt="nothingBoy" style="width:30px; height:30px ; float:left ; border-radius:50% ;  margin-right:25px;" >
+                                         <img src="{{asset('storage/' .Auth::guard('admin')->user()->image) }}" alt="nothingBoy" style="width:30px; height:30px ; float:left ; border-radius:50% ;  margin-right:25px;" >
 
                                     @endif
 
                                 
                   
                                 @else
-
+                                    {{ Auth::user()->name }}
                                     @if(Auth::user()->image =='default.jpg' )
                                          <img src="{{asset('storage/uploads/' .Auth::user()->image) }}" alt="nothingBoy" style="width:30px; height:30px ; float:left ; border-radius:50% ;  margin-right:25px;" >
                                     @else
-                                         <img src="{{asset('storage/' .Auth::user()->image) }}" alt="nothingBoy" style="width:30px; height:30px ; float:left ; border-radius:50% ;  margin-right:25px;" >
+                                         <img src="{{asset('storage/' . Auth::user()->image) }}" alt="nothingBoy" style="width:30px; height:30px ; float:left ; border-radius:50% ;  margin-right:25px;" >
 
                                     @endif
 
@@ -82,38 +87,82 @@
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ route('logout') }}"
-                                   onclick="event.preventDefault();
-                                                 document.getElementById('logout-form').submit();">
-                                    {{ __('Logout') }}
-                                </a>
+                               {{--the drop down links changes according to the logged user type--}}
 
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                    @csrf
-                                </form>
-                                <a class="dropdown-item" href="#">
-                                    {{ __('DoSomething') }}
-                                </a>
-                               @auth('admin')
-                               <a class="dropdown-item" href="#">
-                                {{ __('DoSomething') }}
-                                 </a>
+                               {{--admin drop down--}}
+                                @auth('admin')
+                                        <a class="dropdown-item" href="/admin/MangeCoaches">
+                                            {{ __('Mabge Coaches') }}
+                                        </a>
+                                        <a class="dropdown-item" href="/admin/MangeMembers">
+                                        {{ __('Mange Members') }}
+                                        </a>
+                                        <a class="dropdown-item" href="/admin">
+                                            {{ __('My Profile') }}
+                                        </a>
+                                        <a class="dropdown-item" href="/admin/{{Auth::guard('admin')->user()->id}}/edit">
+                                            {{ __('Update Profile') }}
+                                        </a>
+                                        <a class="dropdown-item" href="/admin/AddCoach">
+                                            {{ __('Add a New Coach') }}
+                                        </a>
+                                        <a class="dropdown-item" href="/admin/AddAdmin">
+                                            {{ __('Add a New Admin') }}
+                                        </a>
                                @endauth
                                
-                                <a class="dropdown-item" href="#">
-                                    {{ __('DoSomething') }}
-                                </a>
-                               
-                                <a class="dropdown-item" href="#">
-                                    {{ __('DoSomething') }}
-                                </a>
+
+                             {{--coach drop down--}}
+
+                               @auth('coach')
+                                    <a class="dropdown-item" href="/coach/members">
+                                        {{ __('Manage My Members') }}
+                                    </a>
+                                    <a class="dropdown-item" href="/coach/MyInbox">
+                                         {{ __('My Messages') }}
+                                    </a>
+                                    <a class="dropdown-item" href="/coach">
+                                        {{ __('My Profile') }}
+                                    </a>
+                                    
+                                    <a class="dropdown-item" href="/coach/{{Auth::user()->id}}/edit">
+                                        {{ __('Update My Profile') }}
+                                    </a>
+                                 @endauth
                                 
 
+                                {{--member drop down--}}
+
+                                @auth('web')
+                                     <a class="dropdown-item" href="/member/profile">
+                                        {{ __('My Profile') }}
+                                    </a>
+                                     <a class="dropdown-item" href="/member/Profile/edit/{{Auth::user()->id}}">
+                                        {{ __('Update My Profile') }}
+                                    </a>
+                                    <a class="dropdown-item" href="/member/MyMsgs">
+                                        {{ __('My Masseges') }}
+                                    </a>
+                                    <a class="dropdown-item" href="/member/DMYorCoach">
+                                        {{ __('Dm Coach') }}
+                                    </a>
+                                @endauth
+                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                onclick="event.preventDefault();
+                                              document.getElementById('logout-form').submit();">
+                                 {{ __('Logout') }}
+                             </a>
+
+                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                 @csrf
+                             </form>
                                 
                             </div>
                             
                             
-                        </li>       
+                        </li>    
+                        
+                        {{--now we know that the system user is just a visitor  , show him the login and register routes--}}
                         @else
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
@@ -125,6 +174,7 @@
                             </li>
                         @endif
                         @endif
+                        {{--links that are there forevery one--}}
                         <li class="nav-item">
                             <a class="nav-link" href="/contact">{{ __('ContactUs') }}</a>
                             </li>

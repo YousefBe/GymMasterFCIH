@@ -34,16 +34,65 @@ Route::post('/contact',[
 ]);
 
 route::prefix('admin')->group(function(){
+    //login routes
     Route::get('/login', 'Auth\AdminLoginController@ShowLoginForm')->name('admin.login');
     Route::Post('/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
+    //profile
     route::get('/' , 'AdminController@index')->name('admin.Dasboard');
-    Route::get('/{admin}/profile', 'AdminController@show')->name('admin.show');  
+    //update profile
     Route::get('/{admin}/edit', 'AdminController@edit')->name('admin.edit');  
-    Route::patch('/{admin}', 'AdminController@update')->name('admin.update');  
+    Route::patch('/{admin}', 'AdminController@update')->name('admin.update'); 
+    //mange members and coaches
+    Route::get('/MangeMembers' , 'AdminController@MangeMembers');
+    Route::get('/MangeCoaches' , 'AdminController@MangeCoaches');
+    
+    Route::delete('/{user}/MemberDelete', 'AdminController@DestroyMembers');
+    Route::delete('/{coach}/CoachDelete', 'AdminController@DestroyCoach');
+    //assign coaches
+    Route::get('/{user}/SetCoach', 'AdminController@AssignCoach')->name('SetCoach');
+    Route::patch('/{user}/CA', 'AdminController@AssignConfirm');
+    //add a new coach 
+    Route::get('/AddCoach' , 'AdminController@addNewCoach');
+    Route::post('/createCoach' , 'AdminController@createCoach')->name('Addcoach');
+    //add a new admin
+    Route::get('/AddAdmin' , 'AdminController@AddaNewAdmin');
+    Route::Post('/create' , 'AdminController@createAdmin');
+    //Show All Admins
+    Route::get('/AllAdmins' , 'AdminController@myAdmins');
     });
     
+route::prefix('coach')->group(function(){
+    Route::get('/login', 'Auth\CoachLoginController@ShowLoginForm')->name('coach.login');
+    Route::post('/login', 'Auth\CoachLoginController@login')->name('coach.login.submit');
+    route::get('/' , 'CoachController@index')->name('Coach.Dasboard');
 
-    Route::get('/coach/login', 'Auth\CoachLoginController@ShowLoginForm')->name('coach.login');
-    Route::post('/coach/login', 'Auth\CoachLoginController@login')->name('coach.login.submit');
-    route::get('/coach' , 'CoachController@index')->name('Coach.Dasboard');
-    route::get('/coach/{coach}' ,'CoachController@myMembers')->name('membs');
+    route::get('/{coach}/edit' , 'CoachController@edit');
+    route::patch('/Profile/{coach}' , 'CoachController@Update');
+
+    route::get('/members' ,'CoachController@myMembers')->name('membs');
+    route::get('/{user}/SendMessage' ,'CoachController@DM');
+    route::post('/{user}/DirectMessage' ,'CoachController@DirectMessage');
+    route::get('/{user}/setPlan' , 'CoachController@SetMemPlan');
+    route::Patch('/{user}/SavePLan' , 'CoachController@StorePlan');
+    route::get('/MyInbox' , 'CoachController@MyMessages');
+    route::get('/theMsg/{msg}' , 'CoachController@ViewMsg')->name('msgD');
+
+});
+   
+
+
+route::prefix('member')->group(function(){
+    
+    route::get('/profile' ,'UserController@index');
+
+    route::get('/DMYorCoach' , 'UserController@DMCoach');
+    route::post('/SendMessage/{coach}' , 'UserController@SendCoachMessage');
+
+
+    route::get('/MyMsgs', 'UserController@MyMsgs');
+    route::get('/TheMsg/{msg}', 'UserController@ViewMsg');
+    
+    route::get('/Profile/edit/{user}' , 'UserController@edit');
+    route::PATCH('/Profile/{user}' , 'UserController@update');
+
+});
