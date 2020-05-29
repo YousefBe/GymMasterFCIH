@@ -90,4 +90,21 @@ class AdminController extends Controller
         }
         
     }
+    //mange members
+
+    public function MangeMembers()
+    {
+        $mems =User::paginate(6);
+
+        return view('admin.ViewMembers' , compact('mems'));
+    }
+//mange Coaches
+
+
+    public function MangeCoaches()
+    {
+        $cocs =Coach::paginate(6);
+
+        return view('admin.Mycoaches' , compact('cocs'));
+    }
 }
