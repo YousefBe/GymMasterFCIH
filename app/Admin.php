@@ -27,6 +27,10 @@ class Admin extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+    
+    public function setPasswordAttribute($value){
+         $this->attributes['password'] = bcrypt($value);
+         }
 
     /**
      * The attributes that should be cast to native types.
@@ -37,10 +41,6 @@ class Admin extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-
-public function setPasswordAttribute($value){
-    $this->attributes['password'] = bcrypt($value);
-}
 
 
 }
