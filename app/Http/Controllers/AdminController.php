@@ -60,12 +60,6 @@ class AdminController extends Controller
                 Alert::success('done',' Profile Updated !');
                 return redirect()->back();
                 }
-
-<<<<<<< Updated upstream
-
-=======
-                
->>>>>>> Stashed changes
         Alert::error('Nope ', 'Wrong Password');
         return redirect()->back();
     }
@@ -153,129 +147,16 @@ class AdminController extends Controller
                 Alert::success('done','Coach Successfully Assigned');
 
                 return redirect('/admin/MangeMembers');
-        }
-<<<<<<< Updated upstream
         
-    }
-    //mange members
 
-    public function MangeMembers()
-    {
-        $mems =User::paginate(6);
-
-        return view('admin.ViewMembers' , compact('mems'));
-    }
-//mange Coaches
+                Alert::success('done','Coach Successfully Assigned');
 
 
-    public function MangeCoaches()
-    {
-        $cocs =Coach::paginate(6);
-
-        return view('admin.Mycoaches' , compact('cocs'));
-    }
-    //destroy Members And Coaches
-
-    public function DestroyMembers(User $user)
-    {
-        $user->delete();  
-        Alert::success('done','Deleted a poor member');
-        return redirect('admin/MangeMembers');
-
-    }
-    public function DestroyCoach(Coach $coach)
-    {
-        $coach->delete();
-        Alert::success('done','Deleted a poor coach');
-
-        return redirect('/admin/MangeCoaches');
-    }
-
-
-// assign coach to membe
-    public function AssignCoach(User $user)
-    {
-
-        $coaches=Coach::all();
-
-        return view('admin.AssignCoach',compact('coaches','user'));
-    }
-
-    public function AssignConfirm(User $user)
-    {
-        request()->validate([
-            'SetCoach' => 'required'
-        ]);
-            $a = request()->SetCoach;
-
-            $user->update([
-                'coach_id' => $a
-            ]) ;
-
-            Alert::success('done','Coach Successfully Assigned');
-
-            return redirect('/admin/MangeMembers');
-    }
-//create coach
-
-    public function addNewCoach()
-    {
-        return view('admin.NewCoach');
-    }
-
-    public function createCoach()
-    {
-       $date=request()->validate([
-           'name'=> 'required',
-           'email' => 'required|email',
-           'password' => 'required|min:3',
-           'age' => 'required|integer',
-           'salary' => 'required|integer'
-       ]);
-
-        $a =Coach::create($date);
-        Alert::success('done','Coach Successfully Created !');
-        return redirect('/admin/MangeCoaches');
-    }
-
-
-
-//create admin 
-
-    public function AddaNewAdmin()
-    {
-        return view('admin.AddAdmin');
-    }
-
-
-    public function createAdmin()
-    {
-        $data=request()->validate([
-            'name' => 'required' ,
-            'email' => 'required|email' ,
-            'password' => 'required|min:3'
-        ]);
-
-        $admin = Admin::create($data);
-        Alert::success('done','Admin Successfully Created !');
-        return redirect('/admin/AllAdmins');
-    }
-
-
-
-//view admins
-
-    public function myAdmins()
-    {
-        $admins = Admin::paginate(6);
-
-        return view('admin.myadmins', compact('admins'));
-    }
-=======
+        }
     //create coach
 
         public function addNewCoach()
-        {
+{
             return view('admin.NewCoach');
         }
 
@@ -285,15 +166,16 @@ class AdminController extends Controller
                'name'=> 'required',
                'email' => 'required|email',
                'password' => 'required|min:3',
-               'age' => 'required|integer',
+
                'salary' => 'required|integer'
            ]);
 
             $a =Coach::create($date);
-            Alert::success('done','Coach Successfully Created !');
-            return redirect('/admin/MangeCoaches');
-        }
 
+           }
+
+
+//create admin 
 
 
     //create admin 
@@ -327,7 +209,6 @@ class AdminController extends Controller
 
             return view('admin.myadmins', compact('admins'));
         }
->>>>>>> Stashed changes
 
 
 
