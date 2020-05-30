@@ -79,6 +79,13 @@
                                 <input id="Weight" type="text" class="form-control " name="Weight" value="{{ old('Weight') }}" required autocomplete="Weight" autofocus>
                             </div>
                         </div>
+                        <div class="form-group row">
+                            <label for="Weight" class="col-md-4 col-form-label text-md-right">{{ __('Height in CMs') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="height" type="text" class="form-control " name="height" value="{{ old('Height') }}" required autocomplete="height" autofocus>
+                        </div>
+                        </div>   
                         
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
