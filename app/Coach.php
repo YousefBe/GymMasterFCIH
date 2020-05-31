@@ -16,7 +16,8 @@ class Coach extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'image' , 'salary' , 'age'
+    
     ];
 
     /**
