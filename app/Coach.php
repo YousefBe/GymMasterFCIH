@@ -46,4 +46,8 @@ class Coach extends Authenticatable
     {
         return $this->hasMany(\App\User::class , 'coach_id');
     }
+    public function Messges()
+{
+    return $this->hasMany(\App\messages::class , 'coach_id');
+}
 }
