@@ -1,8 +1,16 @@
 <?php
 
+
 namespace App\Http\Controllers;
 use App\Coach;
+use App\messages;
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Mail\Message;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+
+
 
 class CoachController extends Controller
 {
