@@ -1,23 +1,33 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container pt-5">
     <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Admin  Dashboard</div>
+        
+            <div class="card text-white bg-dark mb-3" style=" width:440px; border-radius:4%">
+                <div class="card-header">Coach</div>
+                @if(Auth::user()->image =='default.jpg' )
+                     <img src="{{asset('storage/uploads/' .Auth::user()->image) }}" class = "pt-2"alt="nothingBoy" style="width:130px; height:130px ; float:left ; border-radius:50% ;  margin:auto;" >
+                @else
+                    <img src="{{asset('storage/' .Auth::user()->image) }}" alt="nothingBoy" style="width:130px; height:130px ; float:left ; border-radius:50% ;  margin:auto;" >
+
+                  @endif
 
                 <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-                    <a href="/coach/{{Auth::user()->id}}">view members</a>
-                    {{ Auth::user()->name  ?? ''}}  You are logged in As Coach !
+                <h5 class="card-title">{{Auth::user()->name}}'s Profile</h5>
+
+                  <p class="card-text">My Name : {{$user->name}}</p>
+                  <p class="card-text">My E-mail : {{$user->email}}</p>
+                  <p class="card-text">Age : {{$user->age}}</p>
+
+                   
+                
                 </div>
-            </div>
-        </div>
+                <div class="card-footer">
+                    <small class="text-muted">Member since : {{$user->created_at}}</small>
+                  </div>
+         </div>
+     
     </div>
 </div>
 @endsection
