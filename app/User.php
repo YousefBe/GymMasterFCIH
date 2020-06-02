@@ -36,16 +36,20 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-    public function setPasswordAttribute($value){
-        $this->attributes['password'] = bcrypt($value);
-    }
+     public function setPasswordAttribute($value){
+     $this->attributes['password'] = bcrypt($value);
+     }
     
     
 
 public function coach()
 {
-    return $this->belongsTo(Coach::class , 'id');
+    return $this->belongsTo(Coach::class);
 }
 
+public function Messges()
+{
+    return $this->hasMany(\App\messages::class , 'member_id');
+}
 
 }
