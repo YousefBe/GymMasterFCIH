@@ -13,8 +13,10 @@
                             {{ session('status') }}
                         </div>
                     @endif
+
                     welcome {{ Auth::user()->name }}
                     You are logged in!
+                    <a href="/member/MyMsgs">Check Your Messages!</a>
                     <a class="btn float-right login_btn"  href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
