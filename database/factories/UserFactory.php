@@ -25,7 +25,7 @@ $factory->define(User::class, function (Faker $faker) {
         'age' => 50 ,
         'height'=> 173 ,
         'email_verified_at' => now(),
-        'password' => 'password', // password
+        'password' => "password", // password
         'remember_token' => Str::random(10),
     ];
 });

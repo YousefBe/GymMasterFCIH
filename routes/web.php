@@ -33,6 +33,9 @@ Route::post('/contact',[
     'as'=>'contact.store'
 ]);
 
+route::get('/contact-us' , 'ContactController@create');
+route::post('/contact-us/send' , 'ContactController@store');
+
 route::prefix('admin')->group(function(){
     //login routes
     Route::get('/login', 'Auth\AdminLoginController@ShowLoginForm')->name('admin.login');
