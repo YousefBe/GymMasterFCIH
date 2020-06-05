@@ -11,6 +11,8 @@
                 <form method="POST" action="/contact-us/send">
                         @csrf
                         <div class="form-group">
+                            <small>to check delivered message login to stmp with email: mailmeplease58@gmail.com</small>
+                            <small>password : justmailme <small>
                                     <h3 style="text-align: center;">Give Us your feed Back or ask about whatever you wana know , we are here for you</h3>
                                     <label for="subjecct">subject</label>
                                     <input type="text" class="form-control" name="subject">
