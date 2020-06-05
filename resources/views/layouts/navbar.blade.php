@@ -176,7 +176,7 @@
                         @endif
                         {{--links that are there forevery one--}}
                         <li class="nav-item">
-                            <a class="nav-link" href="/contact">{{ __('ContactUs') }}</a>
+                            <a class="nav-link" href="/contact-us">{{ __('ContactUs') }}</a>
                             </li>
                             <li class="nav-item">
                             <a class="nav-link" href="#">{{ __('About-Us') }}</a>

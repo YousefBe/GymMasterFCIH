@@ -24,7 +24,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-
+//old contact-us
 Route::get('/contact', function () {
     return view('posts.contact');
 });
@@ -32,9 +32,14 @@ Route::post('/contact',[
     'uses'=>'PostsController@store',
     'as'=>'contact.store'
 ]);
+//end of old contact
 
+
+//new contact us added by yousef ragab
 route::get('/contact-us' , 'ContactController@create');
 route::post('/contact-us/send' , 'ContactController@store');
+//end of new contact us
+
 
 route::prefix('admin')->group(function(){
     //login routes
