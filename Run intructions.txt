@@ -7,6 +7,7 @@ in the terminal type :
 2- npm install
 
 3-cp .env.example .env
+//change the db to whatever
 
 4-php artisan key:generate
 
