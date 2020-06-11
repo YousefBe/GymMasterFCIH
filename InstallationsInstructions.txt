@@ -17,7 +17,7 @@ in mysql part change the database name into your database name in mysql
 
 
 7- run php artisan db:seed
-
+//important for admins and coaches , emails and passwords  will be found in the seeds 
 
 8- run php artisan storage:link --for the profile image--
 
